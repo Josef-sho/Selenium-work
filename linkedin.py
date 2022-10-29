@@ -4,6 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 
+your_linkedin_username = name
+your_linkedin_password = password
 
 ser = Service('C:\dev\chromedriver.exe')
 driver = webdriver.Chrome(service=ser)
@@ -15,10 +17,10 @@ signin.click()
 
 
 username = driver.find_element(By.ID, 'username')
-username.send_keys('josephshodunke4@gmail.com')
+username.send_keys('your_linkedin_username')
 
 password = driver.find_element(By.ID, 'password')
-password.send_keys('banke123')
+password.send_keys('your_linkedin_password')
 time.sleep(2)
 
 signin2 = driver.find_element(By.CLASS_NAME, 'btn__primary--large')
