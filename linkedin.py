@@ -7,29 +7,37 @@ import time
 
 ser = Service('C:\dev\chromedriver.exe')
 driver = webdriver.Chrome(service=ser)
-driver.get('https://www.linkedin.com/')
+driver.get('https://www.linkedin.com/jobs/search/?currentJobId=3325354619&f_AL=true&f_WT=2&geoId=105365761&keywords='
+           'python%20developer&location=Nigeria&refresh=true')
 
 signin = driver.find_element(By.LINK_TEXT, 'Sign in')
 signin.click()
 
 
-
 username = driver.find_element(By.ID, 'username')
 username.send_keys('josephshodunke4@gmail.com')
-time.sleep(2)
+
 password = driver.find_element(By.ID, 'password')
 password.send_keys('banke123')
 time.sleep(2)
 
 signin2 = driver.find_element(By.CLASS_NAME, 'btn__primary--large')
 signin2.click()
-
-jobs = driver.find_element(By.XPATH, '/html/body/div[5]/header/div/nav/ul/li[3]/a')
+#
+jobs = driver.find_element(By.CLASS_NAME, 'job-card-list__title')
 jobs.click()
 
-search1 = driver.find_element(By.CLASS_NAME, 'jobs-search-box__input-icon')
-search1.send_keys('python developer')
-search1.send_keys(Keys.ENTER)
+apply = driver.find_element(By.CLASS_NAME, 'artdeco-button__icon--in-bug')
+apply.click()
+
+num = driver.find_element(By.CLASS_NAME, 'fb-single-line-text__input')
+num.send_keys('09090386260')
+
+next = driver.find_element(By.CLASS_NAME, 'artdeco-button--primary ember-view')
+next.click()
+
+
+
 
 
 # skip = driver.find_element(By.CLASS_NAME, 'secondary-action')
