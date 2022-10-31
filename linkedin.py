@@ -7,7 +7,7 @@ import time
 your_linkedin_username = name
 your_linkedin_password = password
 
-ser = Service('C:\dev\chromedriver.exe')
+ser = Service('chromedriver.exe')
 driver = webdriver.Chrome(service=ser)
 driver.get('https://www.linkedin.com/jobs/search/?currentJobId=3325354619&f_AL=true&f_WT=2&geoId=105365761&keywords='
            'python%20developer&location=Nigeria&refresh=true')
