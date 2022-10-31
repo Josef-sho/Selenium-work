@@ -4,8 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 #
-# username = input('input your username please')
-# passw = input('what is your password please')
+username = YOUR_USERNAME
+password = YOUR_PASSWORD
 # serr = input('Hey josef what service do you want to go to, type 1 or 2 :')
 
 opera_path = "C:\dev\chromedriver.exe"
@@ -25,11 +25,11 @@ service.click()
 
 cs = driver.find_element(By.NAME, 'pudate')
 
-# if serr == 2:
+# if serr == 1:
 dd = Select(cs)
 dd.select_by_index(1)
 
-# elif serr == 1:
+# elif serr == 2:
 #     dd = Select(cs)
 #     dd.select_by_index(2)
 
@@ -43,5 +43,3 @@ alert.accept()
 last = driver.find_element(By.XPATH, '/html/body/div[3]/div[1]/div/div/form/div/div[2]/div[2]/input')
 last.click()
 
-# tbontbtitq123
-# shodunke.joseph
