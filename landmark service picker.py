@@ -8,7 +8,7 @@ username = YOUR_USERNAME
 password = YOUR_PASSWORD
 # serr = input('Hey josef what service do you want to go to, type 1 or 2 :')
 
-opera_path = "C:\dev\chromedriver.exe"
+opera_path = "chromedriver.exe"
 ser = Service(opera_path)
 driver = webdriver.Chrome(service=ser)
 driver.get("https://att.lmu.edu.ng/log/login")
