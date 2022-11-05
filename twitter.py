@@ -18,28 +18,46 @@ class Twitter:
         self.down = 0
         self.go = None
         self.driver = webdriver.Chrome(service=ser)
+        self.username = None
+        self.password = None
+        self.login = None
+
 
 
     def get_speed(self):
-        self.driver.get('https://www.speedtest.net')
-        accept_button = self.driver.find_element(By.ID, "onetrust-accept-btn-handler")
-        accept_button.click()
-        self.go = self.driver.find_element(By.CLASS_NAME, 'start-text')
+        self.driver.get('https://fast.com/')
+        # accept_button = self.driver.find_element(By.ID, "onetrust-accept-btn-handler")
+        # accept_button.click()
+        time.sleep(40)
+        self.go = self.driver.find_element(By.ID, 'show-more-details-link')
         self.go.click()
 
-        time.sleep(60)
-        self.up = self.driver.find_element(By.CLASS_NAME, '.download-speed')
-        self.down = self.driver.find_element(By.CLASS_NAME, '.upload-speed')
-        print(self.up)
-        print(self.down)
+        self.up = self.driver.find_element(By.ID, 'up-mb-value')
+        self.down = self.driver.find_element(By.ID, 'down-mb-value')
+        print(self.up.text)
+        print(self.down.text)
 
     def tweet_at_them(self):
-        self.driver.get('https://twitter.com/i/flow/login')
+        self.driver.get('https://twitter.com/login')
+        self.username = self.driver.find_element(By.NAME, 'text')
+        self.username.send_keys(f'{TWITTER_USERNAME}')
+        time.sleep(3)
+        self.username.send_keys(Keys.ENTER)
+        try:
+            self.password = self.driver.find_element(By.NAME, 'password')
+            self.password.send_keys(f'{TWITTER_PASSWORD}')
+            self.login = self.driver.find_element(By.XPATH, '/html/body/div/div/div/div/main/div/div/div/div[2]/div[2]/div[2]/div/div/div[1]/div/div/div/div/span/span')
+            self.login.click()
+        except:
+            time.sleep(3)
+            self.username = self.driver.find_element(By.NAME, 'text')
+            self.username.send_keys(f'{TWITTER_USERNAME}')
+
 
 
 tweet = Twitter(serv)
 
-tweet.get_speed()
+tweet.tweet_at_them()
 
 # accept = driver.find_element(By.ID, 'start-text')
 
