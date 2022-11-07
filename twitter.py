@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import time
 
-serv = Service('C:\dev\chromedriver.exe')
+serv = Service('chromedriver.exe')
 PROMISED_DOWN = 150
 PROMISED_UP = 10
 TWITTER_USERNAME = 'josephshodunke4@gmail.com'
