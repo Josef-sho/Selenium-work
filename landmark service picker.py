@@ -14,9 +14,9 @@ driver = webdriver.Chrome(service=ser)
 driver.get("https://att.lmu.edu.ng/log/login")
 
 user = driver.find_element(By.NAME, 'username')
-user.send_keys(f'shodunke.joseph')
+user.send_keys(f'USERNAME')
 password = driver.find_element(By.NAME, 'password')
-password.send_keys(f'tbontbtitq123')
+password.send_keys(f'PASSWORD')
 submit = driver.find_element(By.NAME, 'submit')
 submit.click()
 
